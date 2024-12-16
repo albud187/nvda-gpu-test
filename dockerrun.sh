@@ -2,7 +2,7 @@
 #!/bin/bash
 
 # Container name
-CONTAINER_NAME=""
+CONTAINER_NAME="gpu-test-ws"
 
 # Directory for volume mounting your ros2_ws for persistent storage
 WORKDIR="/workdir"
@@ -19,6 +19,7 @@ else
     # Run the Docker container with GUI support and custom startup command
     docker run -it \
                --name ${CONTAINER_NAME} \
+               --gpus all \
                --rm \
                --privileged \
                -e DISPLAY=$DISPLAY \
